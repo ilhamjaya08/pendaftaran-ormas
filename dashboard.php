@@ -14,6 +14,15 @@ require './config/database.php';
         <div id="message"></div>
     </div>
 
+    <?php 
+    if($_SESSION['level'] === 'Admin') {
+        require "./pages/dashboard_admin.php"; 
+    } else if($_SESSION['level'] === 'Ormas') {
+        require "./pages/dashboard_ormas.php";
+    }
+    
+    ?>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
