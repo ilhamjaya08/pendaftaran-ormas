@@ -149,8 +149,9 @@ $id_ormas = $id_ormasResult['id_ormas'];
     </div>
     <div class="col-xl-4 col-lg-5">
         <div class="card">
-            <div class="card-header">
-                Akun Anda
+            <div class="card-header d-sm-flex align-items-center justify-content-between mb-4">
+                <h6 class="text-md">Akun Anda</h6>
+                <button class="btn btn-primary btn-md rounded-sm">Edit</button>
             </div>
             <div class="card-body">
                 <form aria-disabled="true">
