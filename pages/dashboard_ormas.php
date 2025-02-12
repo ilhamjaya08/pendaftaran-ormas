@@ -148,12 +148,46 @@ $id_ormas = $id_ormasResult['id_ormas'];
         </div>
     </div>
     <div class="col-xl-4 col-lg-5">
-
+        <div class="card">
+            <div class="card-header">
+                Akun Anda
+            </div>
+            <div class="card-body">
+                <form aria-disabled="true">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" id="username" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" id="email" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>No. HP</label>
+                        <input type="text" name="no_hp" id="no_hp" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Level</label>
+                        <input type="text" name="level" id="level" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" name="statususer" id="statususer" class="form-control" disabled>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var id_ormas = <?php echo $id_ormas;?> 
+            var id_user = <?php echo $id_user;?>
+
             $.ajax({
                 url: 'actions/get_ormas.php',
                 method: 'POST',
@@ -168,6 +202,21 @@ $id_ormas = $id_ormasResult['id_ormas'];
                     $('#nama_ketua').val(data.nama_ketua);
                     $('#no_hp_ketua').val(data.no_hp_ketua);
                     $('#status').val(data.status);
+                }
+            })
+
+            
+            $.ajax({
+                url: 'actions/get_userinfo.php',
+                method: 'POST', 
+                data: { id_user: id_user },
+                success: function(data) {
+                    $('#username').val(data.username);
+                    $('#nama_lengkap').val(data.nama_lengkap);
+                    $('#email').val(data.email);
+                    $('#no_hp').val(data.no_hp);
+                    $('#level').val(data.level);
+                    $('#statususer').val(data.status);
                 }
             })
         })
